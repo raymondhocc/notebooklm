@@ -1,74 +1,206 @@
-/* Add these styles to your existing CSS */
-    .document-upload {
-      margin-bottom: 2rem;
+:root {
+      --bg-color: #1a1a1a;
+      --text-color: #ffffff;
+      --primary-color: #646cff;
+      --secondary-color: #535bf2;
+      --accent-color: #ff6b6b;
+      --error-color: #ff6b6b;
+      --success-color: #6bff6b;
     }
 
-    .drop-zone {
-      border: 2px dashed #646cff;
-      border-radius: 8px;
-      padding: 2rem;
-      text-align: center;
-      transition: all 0.2s;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    .drop-zone.dragging {
-      background: rgba(100, 108, 255, 0.1);
-      border-color: #535bf2;
+    html, body, #root {
+      height: 100%;
     }
 
-    .file-preview {
+    .app {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      height: 100vh;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    .auth-container {
+      max-width: 400px;
+      margin: auto;
+      padding: 2rem;
+      background: #2a2a2a;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .auth-container h2 {
+      margin-bottom: 1.5rem;
+      text-align: center;
+      color: var(--primary-color);
+    }
+
+    .auth-container form {
+      display: flex;
+      flex-direction: column;
       gap: 1rem;
     }
 
-    .file-icon {
-      font-size: 3rem;
-      color: #646cff;
-    }
-
-    .upload-btn {
-      background: #646cff;
+    .auth-container input {
+      padding: 0.75rem;
+      background: #3a3a3a;
       color: white;
       border: none;
-      padding: 0.5rem 1rem;
       border-radius: 4px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      font-size: 1rem;
     }
 
-    .file-input-label {
-      background: #646cff;
+    .auth-container button[type="submit"] {
+      background: var(--primary-color);
       color: white;
-      padding: 0.5rem 1rem;
+      border: none;
+      padding: 0.75rem;
       border-radius: 4px;
       cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.2s;
     }
 
-    .document-chat {
-      background: #2a2a2a;
-      border-radius: 8px;
-      padding: 1rem;
+    .auth-container button[type="submit"]:hover {
+      background: var(--secondary-color);
+    }
+
+    .auth-options {
+      margin-top: 1.5rem;
       display: flex;
       flex-direction: column;
-      height: 500px;
+      gap: 0.75rem;
     }
 
-    .chat-header {
+    .auth-options button {
+      background: none;
+      border: none;
+      color: var(--primary-color);
+      cursor: pointer;
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .auth-options button:hover {
+      color: var(--secondary-color);
+    }
+
+    .demo-login-btn {
+      background: var(--accent-color) !important;
+      color: white !important;
+      padding: 0.75rem;
+      border-radius: 4px;
+      margin-top: 1rem;
+      font-size: 1rem;
+      transition: opacity 0.2s;
+    }
+
+    .demo-login-btn:hover {
+      opacity: 0.9;
+    }
+
+    .auth-error {
+      color: var(--error-color);
+      background: rgba(255, 107, 107, 0.1);
+      padding: 0.75rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      text-align: center;
+      border: 1px solid rgba(255, 107, 107, 0.2);
+    }
+
+    .dashboard {
+      display: flex;
+      height: calc(100vh - 60px);
+      margin-top: 60px;
+    }
+
+    .sidebar {
+      width: 250px;
+      background: #2a2a2a;
+      padding: 1rem;
+      overflow-y: auto;
+    }
+
+    .main-content {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+    }
+
+    .document-view {
+      flex: 2;
+      padding: 1rem;
+      overflow-y: auto;
+    }
+
+    .side-panels {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem;
+      background: #2a2a2a;
+    }
+
+    .panel-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 1rem;
     }
 
-    .ai-indicator {
+    .panel-header h3 {
+      color: var(--primary-color);
+    }
+
+    .notes-panel, .insights-panel {
+      background: #3a3a3a;
+      padding: 1rem;
+      border-radius: 8px;
+      height: 50%;
+      overflow-y: auto;
+    }
+
+    .notes-list {
+      max-height: 300px;
+      overflow-y: auto;
+      margin-bottom: 1rem;
+    }
+
+    .note-item {
+      background: #4a4a4a;
+      padding: 0.75rem;
+      margin-bottom: 0.75rem;
+      border-radius: 4px;
+    }
+
+    .note-actions {
       display: flex;
-      align-items: center;
       gap: 0.5rem;
-      color: #646cff;
+      margin-top: 0.5rem;
+    }
+
+    .note-actions button {
+      background: none;
+      border: none;
+      color: var(--text-color);
+      cursor: pointer;
+      padding: 0.25rem;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .note-actions button:hover {
+      background: rgba(255, 255, 255, 0.1);
     }
 
     .chat-messages {
@@ -81,60 +213,29 @@
     }
 
     .message {
-      display: flex;
       margin-bottom: 1rem;
     }
 
     .message.user {
-      justify-content: flex-end;
+      text-align: right;
     }
 
     .message.ai {
-      justify-content: flex-start;
+      text-align: left;
     }
 
     .message-content {
+      display: inline-block;
       max-width: 70%;
       padding: 0.75rem;
       border-radius: 8px;
-      position: relative;
     }
 
     .message.user .message-content {
-      background: #646cff;
+      background: var(--primary-color);
       color: white;
     }
 
     .message.ai .message-content {
       background: #3a3a3a;
-    }
-
-    .message-content small {
-      display: block;
-      margin-top: 0.25rem;
-      font-size: 0.75rem;
-      opacity: 0.7;
-    }
-
-    .chat-input {
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    .chat-input input {
-      flex: 1;
-      padding: 0.75rem;
-      background: #3a3a3a;
-      color: white;
-      border: none;
-      border-radius: 8px;
-    }
-
-    .chat-input button {
-      background: #646cff;
-      color: white;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      cursor: pointer;
     }
