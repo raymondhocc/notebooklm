@@ -1,24 +1,34 @@
 {
-      "name": "notebooklm-app",
+      "name": "notebooklm-clone",
       "private": true,
-      "version": "0.0.0",
+      "version": "1.0.0",
       "type": "module",
       "scripts": {
-        "dev": "vite",
-        "build": "vite build",
-        "preview": "vite preview"
+            "dev": "vite",
+            "build": "vite build",
+            "preview": "vite preview",
+            "server": "node server.js"
       },
       "dependencies": {
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "sqlite3": "^5.1.6",
-        "express": "^4.18.2",
-        "cors": "^2.8.5"
+            "bcryptjs": "^2.4.3",
+            "compromise": "^14.11.4",
+            "cors": "^2.8.5",
+            "express": "^4.18.2",
+            "jsonwebtoken": "^9.0.2",
+            "marked": "^7.0.4",
+            "pdf-parse": "^1.1.1",
+            "react": "^18.2.0",
+            "react-dom": "^18.2.0",
+            "react-icons": "^5.4.0",
+            "react-markdown": "^8.0.7",
+            "react-router-dom": "^6.14.2",
+            "sqlite3": "^5.1.6",
+            "uuid": "^9.0.0"
       },
       "devDependencies": {
-        "@types/react": "^18.0.28",
-        "@types/react-dom": "^18.0.11",
-        "@vitejs/plugin-react": "^3.1.0",
-        "vite": "^4.2.0"
+            "@types/react": "^18.2.15",
+            "@types/react-dom": "^18.2.7",
+            "@vitejs/plugin-react": "^4.3.4",
+            "vite": "^4.5.5"
       }
-    }
+}
